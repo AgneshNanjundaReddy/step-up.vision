@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { SAVE_USER } from '../reducer';
 import { withRouter } from 'react-router-dom';
-import Page_one from './page-one-component';
-import Page_two from './page-two-component';
+import PageOne from './page-one-component';
+import PageTwo from './page-two-component';
 
 const initialState = {
     page: 1,
@@ -14,7 +14,7 @@ const initialState = {
     userName: '',
     pass: ''
 };
-const emailRegex = new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
+const emailRegex = new RegExp(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/);
 
 class Reg extends Component {
     state= {...initialState};
@@ -66,9 +66,9 @@ class Reg extends Component {
 
         return (
             <div className="reg-form">
-                <Page_one {...props} />
+                <PageOne {...props} />
                 {
-                    page === 2 && <Page_two {...props} />
+                    page === 2 && <PageTwo {...props} />
                 }
                 <Link to='/'>Back</Link>
                 <button onClick={this.clear}>Clear</button>
